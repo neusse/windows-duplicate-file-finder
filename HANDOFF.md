@@ -1,14 +1,15 @@
 # Project Handoff
 
-Last Updated Local: 2026-05-01 19:54 America/Los_Angeles
-Last Updated UTC: 2026-05-02T02:54:32Z
+Last Updated Local: 2026-05-01 19:58 America/Los_Angeles
+Last Updated UTC: 2026-05-02T02:58:32Z
 Stale After Hours: 24
 Staleness: FRESH
 
 ## Project
 
 - Path: `C:\Users\georg\Codex_Projects\windows-duplicate-file-finder`
-- Git: initialized on branch `main`; source files are prepared for an initial GitHub push.
+- Git: initialized on branch `main`; `origin` points to `https://github.com/neusse/windows-duplicate-file-finder.git`.
+- GitHub: public repository at `https://github.com/neusse/windows-duplicate-file-finder`.
 - Original state: no `HANDOFF.md` existed.
 
 ## Current State
@@ -32,7 +33,7 @@ Staleness: FRESH
 2. Run tests: `python -m pytest`
 3. Start the web app: `python .\file_indexer.py --db .\file_index.sqlite web --host 127.0.0.1 --port 8000`
 4. Open `http://127.0.0.1:8000`.
-5. If ready to publish, add a GitHub remote and push `main`.
+5. Push future source changes with `git push`.
 
 ## Known Risks
 
@@ -43,6 +44,7 @@ Staleness: FRESH
 
 ## Change Log
 
+- 2026-05-01: Published public GitHub repository `neusse/windows-duplicate-file-finder` and set the repo description.
 - 2026-05-01: Initialized Git on `main` and verified SQLite inventory files are ignored.
 - 2026-05-01: Added GitHub-ready README, ignore rules, attributes, MIT license, and contribution notes.
 - 2026-05-01: Deleted stale March SQLite inventory files at user request.
