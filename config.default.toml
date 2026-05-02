@@ -1,0 +1,23 @@
+[scan]
+# Empty string disables the Windows C:\Users\<name> restriction.
+only_user = "georg"
+follow_hidden_dirs = false
+
+exclude_dirnames = [
+  "Windows",
+  "Users\\georg\\AppData",
+  "Program Files",
+  "Program Files (x86)",
+  "ProgramData",
+  "Recovery",
+  "PerfLogs",
+  "Documents and Settings",
+  "MSOCache",
+  "Windows.old",
+  "$RECYCLE.BIN",
+  "System Volume Information",
+]
+
+# Full path glob patterns after normalization. Keep empty unless a dirname
+# exclusion cannot express the rule.
+exclude_globs = []

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Duplicate File Finder</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Duplicate File Finder</h1>
+        <p>Machine-scoped inventory, selected-drive scans, and duplicate review.</p>
+      </div>
+      <button id="refresh">Refresh</button>
+    </header>
+
+    <main>
+      <section class="control-strip">
+        <label>
+          Machine
+          <select id="machine"></select>
+        </label>
+        <label>
+          Drive
+          <select id="drive"></select>
+        </label>
+        <label>
+          Scan
+          <select id="scan"></select>
+        </label>
+        <label>
+          Mode
+          <select id="mode">
+            <option value="size_name">Size + name</option>
+            <option value="sha256">SHA-256</option>
+          </select>
+        </label>
+        <button id="start-scan">Scan Drive</button>
+        <button id="start-hash">Hash Candidates</button>
+        <button id="reset-latest">Reset Latest</button>
+      </section>
+
+      <section class="status-row">
+        <div>
+          <span class="label">Status</span>
+          <strong id="status">Idle</strong>
+        </div>
+        <div>
+          <span class="label">Config</span>
+          <strong id="config-summary">Loading</strong>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="pane pane-wide">
+          <div class="pane-head">
+            <h2>Duplicate Groups</h2>
+            <div>
+              <button id="prev">Prev</button>
+              <button id="next">Next</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>Size</th>
+                <th>Key</th>
+                <th>Sample</th>
+              </tr>
+            </thead>
+            <tbody id="groups"></tbody>
+          </table>
+        </div>
+
+        <div class="pane">
+          <div class="pane-head">
+            <h2>Group Members</h2>
+          </div>
+          <div id="members" class="member-list"></div>
+        </div>
+      </section>
+
+      <section class="pane chart-pane">
+        <div class="pane-head">
+          <h2>Directory Size</h2>
+          <span id="treemap-note"></span>
+        </div>
+        <div id="treemap"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

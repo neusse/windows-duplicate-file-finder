@@ -1,0 +1,195 @@
+:root {
+  --bg: #f6f7f4;
+  --panel: #ffffff;
+  --ink: #20231f;
+  --muted: #687166;
+  --line: #dfe4dc;
+  --accent: #0f766e;
+  --accent-dark: #115e59;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+header {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 32px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 680;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+p,
+.label,
+#treemap-note {
+  color: var(--muted);
+}
+
+main {
+  padding: 24px 32px 40px;
+}
+
+button,
+select {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 36px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  padding: 0 14px;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+select {
+  background: #fff;
+  min-width: 140px;
+  padding: 0 10px;
+}
+
+.control-strip,
+.status-row {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+label {
+  color: var(--muted);
+  display: grid;
+  font-size: 12px;
+  gap: 5px;
+}
+
+.status-row > div {
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+.status-row strong {
+  display: block;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.workspace {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+}
+
+.pane {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.pane-head {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 13px;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  max-width: 360px;
+  overflow: hidden;
+  padding: 10px 12px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr:hover {
+  background: #eef5f2;
+}
+
+.member-list {
+  display: grid;
+  font-size: 13px;
+  gap: 1px;
+  max-height: 460px;
+  overflow: auto;
+}
+
+.member-list div {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 12px;
+  word-break: break-word;
+}
+
+.chart-pane {
+  margin-top: 18px;
+}
+
+#treemap {
+  height: 420px;
+}
+
+@media (max-width: 900px) {
+  header,
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}

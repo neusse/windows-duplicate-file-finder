@@ -1,0 +1,41 @@
+# Install dependencies
+python -m pip install -r .\requirements.txt
+
+# Run the local browser app
+python .\file_indexer.py --db .\file_index.sqlite web --host 127.0.0.1 --port 8000
+
+# List detected drives
+python .\file_indexer.py --db .\file_index.sqlite volumes
+
+# Scan one selected drive on the current Windows machine
+python .\file_indexer.py --db .\file_index.sqlite scan --drive C:\
+
+# Scan several selected drives
+python .\file_indexer.py --db .\file_index.sqlite scan --drive C:\ --drive D:\
+
+# Scan every detected attached volume
+python .\file_indexer.py --db .\file_index.sqlite scan --all-drives
+
+# Hash duplicate-size candidates for the latest scan on this machine
+python .\file_indexer.py --db .\file_index.sqlite hash
+
+# Report duplicates for the latest scan on this machine
+python .\file_indexer.py --db .\file_index.sqlite report --mode size_name --limit 100
+python .\file_indexer.py --db .\file_index.sqlite report --mode sha256 --limit 100
+
+# Reset stale inventory for the latest scan on this machine
+python .\file_indexer.py --db .\file_index.sqlite reset --scope latest
+
+# Reset all inventory for this machine, then reclaim SQLite space
+python .\file_indexer.py --db .\file_index.sqlite reset --scope all --vacuum
+
+# Use a deliberate machine identity override for imports or unusual setups
+python .\file_indexer.py --db .\file_index.sqlite --machine LAPTOP scan --drive C:\
+
+# Configuration
+# - Defaults live in config.default.toml.
+# - Optional local overrides live in config.local.toml.
+# - Duplicate queries are scoped by Windows machine name, so two machines in
+#   one database do not get mixed together.
+# - Avoid running several machines against the same live SQLite file through
+#   OneDrive or a network sync folder. SQLite sidecar files can conflict.
